@@ -79,3 +79,11 @@
 :where(a,button,input,select,textarea):focus-visible{outline:2px solid #9c7334;outline-offset:4px}
 @media(max-width:650px){.hero h1{max-width:12ch}.reel-frame{border-radius:2px}.about-visual{box-shadow:8px 8px 0 rgba(183,138,67,.13)}.nav-links{box-shadow:0 18px 30px rgba(29,25,18,.08)}}
 @media(prefers-reduced-motion:reduce){.reel-landscape-video,.about-stamp>span,.service-card>a{transition:none!important}}
+
+/* Cleaner About section: remove the decorative graphic and improve mobile reading. */
+.about-section{display:block;max-width:1120px;margin-inline:auto}
+.about-copy{max-width:850px;margin-inline:auto}
+.about-copy h2{max-width:18ch;font-size:clamp(36px,5vw,62px);line-height:1.12;letter-spacing:-1.6px}
+.about-copy .gradient-text{display:inline}
+@media(max-width:650px){.about-section{padding-top:56px;padding-bottom:60px}.about-copy h2{font-size:clamp(34px,9.2vw,46px);letter-spacing:-1.2px;line-height:1.12;max-width:100%}.about-copy .eyebrow{font-size:9px;letter-spacing:1.6px}.about-copy>p:not(.eyebrow){font-size:14px;line-height:1.8}.about-copy .button{max-width:100%;gap:12px;padding:13px 15px}.statement-bottom{flex-wrap:wrap}.site-header{min-height:72px}}
+
