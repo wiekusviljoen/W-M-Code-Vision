@@ -323,3 +323,7 @@ body{background:#f5f3eb;color:#1b2418}
 .loader-company-logo{display:block;width:100%;height:100%;object-fit:contain;object-position:center;animation:loader-logo-appear 1s cubic-bezier(.2,.8,.2,1) both}
 @keyframes loader-logo-appear{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
 @media(max-width:600px){.loader-mark{width:min(410px,90vw);height:clamp(145px,39vw,190px);margin-bottom:8px}}
+
+.loader-mark{width:min(460px,88vw);height:auto;aspect-ratio:1.9;display:grid;place-items:center;padding:clamp(10px,2.5vw,24px);border-radius:18px;background:rgba(255,255,255,.96);box-shadow:0 16px 50px rgba(0,0,0,.3);overflow:hidden}
+.loader-company-logo{display:block;width:100%;height:100%;max-height:220px;object-fit:contain;object-position:center}
+@media(max-width:600px){.loader-mark{width:min(410px,90vw);aspect-ratio:1.75;padding:10px;border-radius:14px}.loader-company-logo{max-height:190px}}
