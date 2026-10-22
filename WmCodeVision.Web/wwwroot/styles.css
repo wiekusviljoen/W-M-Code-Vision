@@ -6,3 +6,22 @@
 
 /* Actual logo artwork: keep the full ivory logo visible without the source screenshot bars. */
 .brand-emblem{width:78px;height:68px;object-fit:contain;mix-blend-mode:multiply;flex-shrink:0}.hero-art{min-width:0}.hero-logo{display:block;width:min(100%,480px);height:auto;aspect-ratio:12/11;object-fit:contain;mix-blend-mode:multiply;border-radius:0}.hero-art:before{width:0;height:0;border:0}.hero-art:after{content:none}@media(max-width:650px){.brand-emblem{width:54px;height:48px}.hero-art{min-height:0;height:auto;padding:12px 0 20px}.hero-logo{width:min(100%,380px);aspect-ratio:12/11}}
+
+/* First-visit preloader: wait for the hero video frame, then reveal the page. */
+.site-loader{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#10130f;color:#f4f4ec;transition:opacity .65s ease,visibility .65s ease;visibility:visible;opacity:1}
+.site-loader.is-done{opacity:0;visibility:hidden;pointer-events:none}
+body.is-loading{overflow:hidden}
+.loader-brand{font:italic 62px/1 Georgia,serif;letter-spacing:-5px;color:#f4f4ec}
+.loader-brand span{color:#c8f36a}
+.loader-orbit{position:relative;width:74px;height:74px;margin:30px 0 22px;border:1px solid #35442e;border-radius:50%;animation:loader-spin 2.6s linear infinite}
+.loader-orbit:before,.loader-orbit:after{content:"";position:absolute;inset:9px;border:1px solid #60764a;border-radius:50%;transform:rotate(55deg) scaleX(.42)}
+.loader-orbit:after{transform:rotate(-55deg) scaleX(.42);border-color:#c8f36a}
+.loader-orbit span{position:absolute;left:50%;top:-4px;width:8px;height:8px;border-radius:50%;background:#c8f36a;box-shadow:0 0 18px #c8f36a;transform:translateX(-50%)}
+.loader-name{font:10px/1.5 Georgia,serif;letter-spacing:3px;margin:0}
+.loader-name b{font-weight:400;color:#c8f36a}
+.loader-status{font:8px/1.5 ui-monospace,monospace;letter-spacing:2px;color:#9ba995;margin:28px 0 13px}
+.loader-progress{width:min(220px,58vw);height:2px;background:#2d3928;overflow:hidden}
+.loader-progress span{display:block;width:42%;height:100%;background:#c8f36a;box-shadow:0 0 12px #c8f36a;animation:loader-progress 1.5s ease-in-out infinite}
+@keyframes loader-spin{to{transform:rotate(360deg)}}
+@keyframes loader-progress{from{transform:translateX(-110%)}to{transform:translateX(250%)}}
+@media(prefers-reduced-motion:reduce){.site-loader,.loader-orbit,.loader-progress span{transition:none!important;animation:none!important}.loader-progress span{width:100%}}

@@ -9,11 +9,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="video" href="helmeringhausen-drone.mp4" type="video/mp4">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="interactive.css">
   <script src="script.js" defer></script>
 </head>
 <body>
+  <div class="site-loader" id="site-loader" role="status" aria-live="polite" aria-label="Loading W and M Code and Vision">
+    <div class="loader-brand">W<span>&amp;</span>M</div>
+    <div class="loader-orbit" aria-hidden="true"><span></span></div>
+    <p class="loader-name">CODE <b>&amp; VISION</b></p>
+    <p class="loader-status">PREPARING THE SHOWREEL</p>
+    <div class="loader-progress" aria-hidden="true"><span></span></div>
+  </div>
   <header class="site-header">
     <a class="brand" href="#home" aria-label="W&M Code and Vision home"><img class="brand-emblem" src="logo-cropped.jpg" alt="W&M Code and Vision logo"><span class="brand-name">CODE <b>&amp; VISION</b></span></a>
     <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span></button>
@@ -31,7 +39,7 @@
       <div class="hero-art reel-hero" aria-label="A moving showcase of code, drone footage and design">
         <div class="reel-topline"><span><i class="live-pulse"></i> THE W&amp;M SHOWREEL</span><span>BUILD / CREATE / CAPTURE</span></div>
         <div class="reel-track">
-          <article class="reel-frame reel-drone"><video class="reel-landscape-video" autoplay muted loop playsinline preload="metadata" poster="helmeringhausen-drone-poster.jpg" aria-label="Smooth aerial footage of the Tiras Mountains near Helmeringhausen, Namibia"><source src="helmeringhausen-drone.mp4" type="video/mp4"></video><div class="reel-frame-shade"></div><span class="frame-index">01 / HELMERINGHAUSEN</span><div class="frame-caption"><small>A DIFFERENT POINT OF VIEW</small><h3>Made to move.</h3></div><span class="frame-play" aria-hidden="true"></span></article>
+          <article class="reel-frame reel-drone"><video class="reel-landscape-video" autoplay muted loop playsinline preload="auto" poster="helmeringhausen-drone-poster.jpg" aria-label="Smooth aerial footage of the Tiras Mountains near Helmeringhausen, Namibia"><source src="helmeringhausen-drone.mp4" type="video/mp4"></video><div class="reel-frame-shade"></div><span class="frame-index">01 / HELMERINGHAUSEN</span><div class="frame-caption"><small>A DIFFERENT POINT OF VIEW</small><h3>Made to move.</h3></div><span class="frame-play" aria-hidden="true"></span></article>
           <article class="reel-frame reel-code"><div class="code-window"><div class="window-bar"><i></i><i></i><i></i><span>wm-studio / app.cs</span></div><div class="code-lines"><p><b>01</b> <em>public class</em> <strong>Vision</strong></p><p><b>02</b> {</p><p><b>03</b> &nbsp; <em>var</em> idea = <mark>BuildSomethingGreat</mark>();</p><p><b>04</b> &nbsp; <em>return</em> idea.<strong>BringToLife</strong>();</p><p><b>05</b> }</p><p class="code-cursor"><b>06</b> <span></span></p></div></div><span class="frame-index">02 / BUILD</span><div class="frame-caption"><small>IDEAS INTO REAL TOOLS</small><h3>Built with intent.</h3></div></article>
           <article class="reel-frame reel-design"><div class="design-art"><div class="design-orbit"></div><div class="design-card design-card-back"></div><div class="design-card design-card-front"><span>W&amp;M</span><i>DESIGN THAT<br>MEANS BUSINESS.</i><small>BRAND / DIGITAL / MOTION</small></div><span class="design-spark" aria-hidden="true">+</span></div><span class="frame-index">03 / CREATE</span><div class="frame-caption"><small>DESIGN WITH A POINT OF VIEW</small><h3>Made to be seen.</h3></div></article>
         </div>
