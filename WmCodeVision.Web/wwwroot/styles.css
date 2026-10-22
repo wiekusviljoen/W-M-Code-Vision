@@ -117,3 +117,10 @@ body.is-loading{overflow:hidden}
 @keyframes loader-progress-complete{0%{transform:translateX(370%) scaleX(1.1);opacity:.35}100%{transform:translateX(0) scaleX(2.65);opacity:1}}
 @keyframes loader-draw-stroke{to{stroke-dashoffset:0}}
 @media(prefers-reduced-motion:reduce){.site-loader.is-drawing .draw-path{animation:none;stroke-dashoffset:0}.site-loader.is-ready .loader-progress span{animation:none;transform:translateX(0);width:100%}}
+
+/* Keep the aerial backdrop alive during the full logo-drawing sequence. */
+.loader-video{will-change:transform;transform-origin:50% 50%;animation:loader-aerial-drift 8s ease-in-out infinite alternate}
+.site-loader.is-drawing .loader-video{animation-duration:4.8s;animation-timing-function:linear}
+.site-loader.is-drawing .loader-shade{background:linear-gradient(180deg,rgba(8,12,8,.34),rgba(8,12,8,.56) 55%,rgba(8,12,8,.82));transition:background 1s ease}
+@keyframes loader-aerial-drift{0%{transform:scale(1.04) translate3d(-1.1%,.6%,0)}50%{transform:scale(1.1) translate3d(.7%,-.5%,0)}100%{transform:scale(1.16) translate3d(1.2%,.7%,0)}}
+@media(prefers-reduced-motion:reduce){.loader-video,.site-loader.is-drawing .loader-video{animation:none;transform:scale(1.06)}}
