@@ -80,6 +80,10 @@
 @media(max-width:650px){.hero h1{max-width:12ch}.reel-frame{border-radius:2px}.about-visual{box-shadow:8px 8px 0 rgba(183,138,67,.13)}.nav-links{box-shadow:0 18px 30px rgba(29,25,18,.08)}}
 @media(prefers-reduced-motion:reduce){.reel-landscape-video,.about-stamp>span,.service-card>a{transition:none!important}}
 
+/* Live app link in the portfolio project card. */
+.work-live-link{display:inline-flex;align-items:center;gap:7px;margin-top:14px;color:#304a2c;font-size:11px;font-weight:700;text-decoration:none;border-bottom:1px solid #a8b99a;padding-bottom:4px;transition:gap .2s,color .2s}
+.work-live-link:hover{gap:11px;color:#6a873f}
+
 /* Selected work: concrete project stories for customers and hiring teams. */
 .work-heading{display:flex;align-items:end;justify-content:space-between;gap:36px;margin-bottom:34px}
 .work-heading h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(38px,4.6vw,60px);line-height:1.08;letter-spacing:-1.8px;font-weight:400;margin:0}
