@@ -318,3 +318,8 @@ body{background:#f5f3eb;color:#1b2418}
 .loader-service-sketch{width:min(360px,78vw);height:auto;max-height:48px;margin:18px 0 8px;opacity:.9}
 .loader-progress{width:min(220px,55vw);margin-top:16px}
 @media(max-width:600px){.loader-mark{width:min(410px,90vw);height:clamp(145px,39vw,190px);margin-bottom:8px}.loader-content .loader-name{font-size:13px;letter-spacing:4px}.loader-service-sketch{width:min(320px,82vw);margin:14px 0 6px}.loader-content .loader-status{margin-top:15px;font-size:9px}}
+/* Use the actual cropped company logo in the startup loader. */
+.loader-mark{width:min(460px,88vw);height:clamp(150px,24vw,205px);display:flex;align-items:center;justify-content:center;margin-bottom:10px;filter:drop-shadow(0 8px 28px rgba(0,0,0,.32))}
+.loader-company-logo{display:block;width:100%;height:100%;object-fit:contain;object-position:center;animation:loader-logo-appear 1s cubic-bezier(.2,.8,.2,1) both}
+@keyframes loader-logo-appear{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+@media(max-width:600px){.loader-mark{width:min(410px,90vw);height:clamp(145px,39vw,190px);margin-bottom:8px}}
