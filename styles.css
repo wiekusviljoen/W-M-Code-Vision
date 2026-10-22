@@ -102,3 +102,18 @@ body.is-loading{overflow:hidden}
 .loader-progress span{position:absolute;left:0;top:4px;width:38%;height:3px;background:linear-gradient(90deg,transparent,#8eaf48 35%,#e5ff9a 85%,transparent);box-shadow:0 0 10px rgba(200,243,106,.85);animation:loader-horizon-sweep 2.1s cubic-bezier(.45,0,.55,1) infinite}
 @keyframes loader-horizon-sweep{0%{transform:translateX(-110%) scaleX(.7);opacity:.25}45%{opacity:1}100%{transform:translateX(370%) scaleX(1.1);opacity:.25}}
 @media(prefers-reduced-motion:reduce){.loader-progress span{width:100%;transform:none;animation:none;opacity:.8}.loader-progress:after{display:none}}
+
+/* Once the video is ready, the sweep resolves into a hand-drawn W&M monogram. */
+.loader-mark{width:min(300px,76vw);height:100px;display:grid;place-items:center;margin-bottom:8px}
+.loader-draw-mark{width:100%;height:100%;overflow:visible}
+.draw-path{fill:none;stroke:#c8f36a;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:420;stroke-dashoffset:420;filter:drop-shadow(0 0 5px rgba(200,243,106,.35))}
+.site-loader.is-drawing .draw-path{animation:loader-draw-stroke 1.15s cubic-bezier(.45,0,.2,1) forwards}
+.site-loader.is-drawing .draw-amp{animation-delay:.12s}
+.site-loader.is-drawing .draw-m{animation-delay:.24s}
+.site-loader.is-ready .loader-progress span{animation:loader-progress-complete .72s cubic-bezier(.2,.75,.25,1) forwards}
+.site-loader.is-ready .loader-progress:after{opacity:0;transition:opacity .2s ease}
+.site-loader.is-drawing .loader-progress{opacity:0;transform:translateY(-8px) scaleX(.7);transition:opacity .3s ease,transform .45s ease}
+.site-loader.is-drawing .loader-status{opacity:0;transform:translateY(-5px);transition:opacity .3s ease,transform .3s ease}
+@keyframes loader-progress-complete{0%{transform:translateX(370%) scaleX(1.1);opacity:.35}100%{transform:translateX(0) scaleX(2.65);opacity:1}}
+@keyframes loader-draw-stroke{to{stroke-dashoffset:0}}
+@media(prefers-reduced-motion:reduce){.site-loader.is-drawing .draw-path{animation:none;stroke-dashoffset:0}.site-loader.is-ready .loader-progress span{animation:none;transform:translateX(0);width:100%}}

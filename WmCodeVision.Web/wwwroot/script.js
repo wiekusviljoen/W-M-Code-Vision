@@ -29,8 +29,22 @@
         } catch (_) {
           // The first frame is ready even if the browser blocks autoplay.
         }
-        // Let the footage paint behind the logo before revealing the page.
-        requestAnimationFrame(() => requestAnimationFrame(hideLoader));
+        // Finish the progress sweep, then draw the W&M mark before opening the page.
+        loader.classList.add('is-ready');
+        const progress = $('.loader-progress span', loader);
+        const drawLogo = () => {
+          loader.classList.add('is-drawing');
+          window.setTimeout(hideLoader, 1450);
+        };
+        if (progress) {
+          progress.addEventListener('animationend', drawLogo, { once: true });
+          // CSS switches the sweep to a finite completion animation in is-ready state.
+          window.setTimeout(() => {
+            if (!loader.classList.contains('is-drawing')) drawLogo();
+          }, 900);
+        } else {
+          drawLogo();
+        }
       };
       loaderVideo.addEventListener('canplay', startIntro);
       loaderVideo.addEventListener('error', () => {
