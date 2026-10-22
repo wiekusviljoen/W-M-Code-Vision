@@ -308,3 +308,13 @@ body{background:#f5f3eb;color:#1b2418}
 .site-footer .brand-name{color:#1b2418}
 :where(a,button,input,select,textarea):focus-visible{outline:2px solid #557a31}
 @media(max-width:650px){.about-visual{box-shadow:8px 8px 0 rgba(79,112,45,.12)}}
+
+/* Startup branding: make the W&M monogram the hero of the intro */
+.loader-mark{width:min(460px,88vw);height:clamp(150px,24vw,205px);margin-bottom:10px;filter:drop-shadow(0 8px 28px rgba(0,0,0,.38))}
+.loader-draw-mark{width:100%;height:100%;overflow:visible}
+.draw-path{stroke-width:4.2;filter:drop-shadow(0 0 9px rgba(200,243,106,.5))}
+.loader-content .loader-name{font-size:clamp(13px,2vw,17px);letter-spacing:5px;margin-top:14px;text-shadow:0 2px 18px #000}
+.loader-content .loader-status{font-size:10px;letter-spacing:3px}
+.loader-service-sketch{width:min(360px,78vw);height:auto;max-height:48px;margin:18px 0 8px;opacity:.9}
+.loader-progress{width:min(220px,55vw);margin-top:16px}
+@media(max-width:600px){.loader-mark{width:min(410px,90vw);height:clamp(145px,39vw,190px);margin-bottom:8px}.loader-content .loader-name{font-size:13px;letter-spacing:4px}.loader-service-sketch{width:min(320px,82vw);margin:14px 0 6px}.loader-content .loader-status{margin-top:15px;font-size:9px}}
