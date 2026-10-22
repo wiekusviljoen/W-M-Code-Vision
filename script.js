@@ -25,7 +25,7 @@
         if (loaderResolved || (!usePosterFallback && loaderVideo.readyState < HTMLMediaElement.HAVE_FUTURE_DATA)) return;
         loaderResolved = true;
         try {
-          await loaderVideo.play();
+          loaderVideo.play().catch(() => {});
         } catch (_) {
           // The first frame is ready even if the browser blocks autoplay.
         }
@@ -57,7 +57,7 @@
       // rather than trapping visitors indefinitely waiting for full video readiness.
       window.setTimeout(() => {
         if (!loaderResolved) startIntro(true);
-      }, 5500);
+      }, 0);
     }
   }
 
