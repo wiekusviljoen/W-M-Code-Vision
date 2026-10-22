@@ -7,6 +7,8 @@
   const hideLoader = () => {
     if (!loader || loader.classList.contains('is-done')) return;
     loader.classList.add('is-done');
+    document.body.classList.remove('is-loading');
+    document.documentElement.classList.remove('is-loading');
     document.body.classList.add('site-ready');
     window.setTimeout(() => loader.remove(), 750);
   };
