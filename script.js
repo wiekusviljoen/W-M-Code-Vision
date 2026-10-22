@@ -3,7 +3,7 @@
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
   const loader = $('#site-loader');
-  const heroVideo = $('.reel-landscape-video');
+  const loaderVideo = $('.loader-video');
   const hideLoader = () => {
     if (!loader || loader.classList.contains('is-done')) return;
     loader.classList.add('is-done');
@@ -13,23 +13,32 @@
     window.setTimeout(() => loader.remove(), 750);
   };
 
-  // Keep the opening screen covered until the hero video can actually render.
-  // A timeout lets visitors continue on slow connections using the poster image.
+  // Keep the intro visible until the actual background footage can play.
+  // Do not use a timer that dismisses the loader while the drone video is still loading.
   if (loader) {
     document.body.classList.add('is-loading');
-    if (!heroVideo) {
+    if (!loaderVideo) {
       window.addEventListener('load', hideLoader, { once: true });
-      window.setTimeout(hideLoader, 1800);
     } else {
-      const videoReady = () => {
-        if (heroVideo.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) hideLoader();
+      let loaderResolved = false;
+      const startIntro = async () => {
+        if (loaderResolved || loaderVideo.readyState < HTMLMediaElement.HAVE_FUTURE_DATA) return;
+        loaderResolved = true;
+        try {
+          await loaderVideo.play();
+        } catch (_) {
+          // The first frame is ready even if the browser blocks autoplay.
+        }
+        // Let the footage paint behind the logo before revealing the page.
+        requestAnimationFrame(() => requestAnimationFrame(hideLoader));
       };
-      heroVideo.addEventListener('loadeddata', videoReady, { once: true });
-      heroVideo.addEventListener('canplay', videoReady, { once: true });
-      heroVideo.addEventListener('error', hideLoader, { once: true });
-      if (heroVideo.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) videoReady();
-      window.setTimeout(hideLoader, 12000);
-      heroVideo.load();
+      loaderVideo.addEventListener('canplay', startIntro);
+      loaderVideo.addEventListener('error', () => {
+        // If the video genuinely fails, reveal the page rather than trapping visitors.
+        if (!loaderResolved) hideLoader();
+      }, { once: true });
+      loaderVideo.load();
+      if (loaderVideo.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) startIntro();
     }
   }
 
