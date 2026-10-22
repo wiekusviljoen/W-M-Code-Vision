@@ -1,4 +1,4 @@
-.vs/
+﻿.vs/
 .vscode/
 **/bin/
 **/obj/
@@ -7,3 +7,7 @@ dist/
 coverage/
 .DS_Store
 Thumbs.db
+
+*.csproj.user
+**/Properties/PublishProfiles/
+

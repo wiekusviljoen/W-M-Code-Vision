@@ -1,22 +1,23 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f0e8">
+  <meta name="theme-color" content="#111511">
   <meta name="description" content="W&M Code & Vision creates software, social content, Google Ads, drone footage and multimedia for ambitious businesses.">
   <title>W&amp;M Code &amp; Vision | Build. Create. Capture.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="interactive.css">
   <script src="script.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="#home" aria-label="W&M Code and Vision home"><img class="brand-emblem" src="logo-cropped.jpg" alt="W&M Code and Vision logo"><span class="brand-name">CODE <b>&amp; VISION</b></span></a>
     <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span></button>
-    <nav class="nav-links" aria-label="Main navigation"><a href="#services">Services</a><a href="#work">Our approach</a><a href="#about">About</a><a class="nav-cta" href="#contact">Let's talk <span aria-hidden="true">&#8599;</span></a></nav>
+    <nav class="nav-links" aria-label="Main navigation"><a href="#services">Services</a><a href="#playground">Playground</a><a href="#work">Our approach</a><a href="#about">About</a><a class="nav-cta" href="#contact">Let's talk <span aria-hidden="true">&#8599;</span></a></nav>
   </header>
   <main>
     <section class="hero" id="home">
@@ -27,7 +28,14 @@
         <div class="hero-actions"><a class="button button-primary" href="#contact">Start a project <span aria-hidden="true">&#8599;</span></a><a class="text-link" href="#services">Explore what we do <span aria-hidden="true">&#8595;</span></a></div>
         <div class="hero-footnote"><span class="tiny-line"></span> BUILD. CREATE. CAPTURE.</div>
       </div>
-      <div class="hero-art" aria-label="W&M Code and Vision brand identity"><img class="hero-logo" src="logo-cropped.jpg" alt="W&M Code and Vision logo with Namibian mountains, an acacia tree and a drone"></div>
+      <div class="hero-art studio-stage" aria-label="Interactive 3D W&M Code and Vision artwork">
+        <div class="scene-glow"></div>
+        <canvas id="studio-canvas" aria-label="Interactive 3D sculpture. Move your pointer to rotate it."></canvas>
+        <div class="scene-fallback" data-shape="knot" aria-hidden="true"><span class="fallback-orbit orbit-a"></span><span class="fallback-orbit orbit-b"></span><span class="fallback-object"></span><span class="fallback-spark spark-a"></span><span class="fallback-spark spark-b"></span></div>
+        <div class="scene-label scene-label-top"><span class="live-pulse"></span> W&amp;M / DIGITAL OBJECTS</div>
+        <div class="scene-label scene-label-bottom"><span class="shape-current">TORUS KNOT / 01</span><span class="scene-status">LOADING 3D EXPERIENCE</span></div>
+        <div class="scene-crosshair crosshair-a"></div><div class="scene-crosshair crosshair-b"></div>
+      </div>
       <div class="hero-index">01 <span>/</span> 04</div>
     </section>
     <section class="trust-strip"><p>ONE CREATIVE PARTNER FOR YOUR NEXT BIG MOVE</p><div><span>SOFTWARE</span><i>*</i><span>CONTENT</span><i>*</i><span>CAMPAIGNS</span><i>*</i><span>PRODUCTION</span></div></section>
@@ -41,6 +49,28 @@
         <article class="service-card service-card-wide"><div class="service-top"><span class="service-number">05 / CREATE</span><span class="service-icon" aria-hidden="true">+</span></div><h3>Multimedia production</h3><p>Photography, video editing, graphics and digital storytelling - brought together into one coherent brand experience.</p><div class="service-tags"><span>Video</span><span>Design</span><span>Editing</span><span>Brand storytelling</span></div><a href="#contact" aria-label="Ask about multimedia production">&#8599;</a></article>
       </div>
     </section>
+    <section class="interactive-studio" id="playground">
+      <div class="studio-heading">
+        <div><p class="eyebrow">DON'T JUST SCROLL. EXPLORE.</p><h2>A little more<br><span class="gradient-text">dimension.</span></h2></div>
+        <p>Meet the digital playground. Switch the object, move your cursor and watch the scene react. This is what happens when technology gets room to play.</p>
+      </div>
+      <div class="playground-panel interactive-panel">
+        <div class="playground-copy"><span class="mini-index">INTERACTIVE LAB / 001</span><h3>Made to be<br>messed with.</h3><p>Choose a form. Drag around the scene. The objects are rendered in real-time 3D.</p>
+          <div class="shape-controls" role="group" aria-label="Choose a 3D object">
+            <button class="shape-button active" type="button" data-shape="knot" aria-pressed="true"><span>01</span> The knot <b>Ã¢â€ â€”</b></button>
+            <button class="shape-button" type="button" data-shape="orb" aria-pressed="false"><span>02</span> The crystal <b>Ã¢â€ â€”</b></button>
+            <button class="shape-button" type="button" data-shape="rings" aria-pressed="false"><span>03</span> The orbit <b>Ã¢â€ â€”</b></button>
+            <button class="shape-button" type="button" data-shape="cube" aria-pressed="false"><span>04</span> The wireframe <b>Ã¢â€ â€”</b></button>
+          </div>
+          <a class="playground-link" href="#contact">Have an idea of your own? Let's build it <span>Ã¢â€ â€”</span></a>
+        </div>
+        <div class="playground-visual">
+          <div class="playground-grid"></div><div class="playground-halo"></div>
+          <div class="playground-orb" data-shape="knot" aria-hidden="true"><span class="play-orbit play-orbit-one"></span><span class="play-orbit play-orbit-two"></span><span class="play-orb-core"></span></div>
+          <div class="playground-caption"><span>REAL-TIME RENDER / 3D</span><span>MOVE YOUR CURSOR Ã¢â€ â€”</span></div>
+        </div>
+      </div>
+    </section>
     <section class="statement-section" id="work"><div class="statement-mark">&ldquo;</div><p>Not just more digital noise.<br><span>Work that works.</span></p><div class="statement-bottom"><span>THOUGHTFUL BY DESIGN</span><span>BUILT AROUND YOUR GOALS &#8599;</span></div></section>
     <section class="section about-section" id="about"><div class="about-visual"><div class="about-grid"></div><div class="about-stamp"><span>W&amp;M</span><small>CODE &amp; VISION<br>DIGITAL STUDIO</small></div><div class="about-note">Independent thinking.<br>Personal collaboration.</div></div><div class="about-copy"><p class="eyebrow">A SMALL TEAM. A WIDE TOOLKIT.</p><h2>We bring the<br>technical and the<br><span class="gradient-text">imaginative together.</span></h2><p>W&amp;M Code &amp; Vision is a creative technology studio built to help businesses show up better, work smarter and tell their story. From custom software to content people want to watch, we connect the dots between what you need and what your audience sees.</p><p>Every project starts with a conversation - your goals first, the right solution second.</p><a class="button button-outline" href="#contact">Tell us what you're planning <span aria-hidden="true">&#8599;</span></a></div></section>
     <section class="contact-section" id="contact"><div class="contact-orb"></div><div class="contact-copy"><p class="eyebrow">HAVE SOMETHING IN MIND?</p><h2>Let's make<br><span class="gradient-text">it happen.</span></h2><p>Tell us a little about your idea. We'll take it from there.</p><div class="contact-small">SOFTWARE | CONTENT | CAMPAIGNS | CREATIVE MEDIA</div></div><form class="contact-form" id="contact-form" action="https://formsubmit.co/info.wmcodevision@gmail.com" method="POST"><input type="hidden" name="_subject" value="New W&M Code & Vision website enquiry"><input type="hidden" name="_template" value="table"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" placeholder="How should we call you?" required><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required><label for="service">What can we help with?</label><select id="service" name="service" required><option value="" disabled selected>Choose a service</option><option>Software development</option><option>Social media content</option><option>Google Ads</option><option>Drone footage</option><option>Multimedia production</option><option>A combination of services</option><option>Not sure yet</option></select><label for="message">Tell us about your project</label><textarea id="message" name="message" rows="3" placeholder="The idea, the goal, the challenge..."></textarea><button class="button button-primary form-submit" type="submit">Send enquiry <span aria-hidden="true">&#8599;</span></button><p class="form-note" id="form-note">Your enquiry will be emailed to W&amp;M Code &amp; Vision. The first submission may require email activation by the company.</p></form></section>
@@ -49,4 +79,5 @@
 </body>
 </html>
 
-[executed on device: DESKTOP-2IPJ9P8 (59869c7c-cbf0-49d3-b774-8bcd0132f317)]
+
+
