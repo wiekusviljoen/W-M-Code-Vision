@@ -251,3 +251,60 @@ body{background:#10140f;color:#f4f1e8}
 @media(max-width:900px){.hero{grid-template-columns:1fr;gap:35px;padding-top:75px}.hero h1{max-width:12ch}.hero-art{height:clamp(380px,80vw,560px)}.hero-content{max-width:700px}.hero-footnote{margin-top:35px}}
 @media(max-width:650px){.site-header{min-height:72px}.hero{padding:60px 6% 65px}.hero h1,.section-heading h2,.about-copy h2,.contact-copy h2{font-size:clamp(47px,13vw,68px);letter-spacing:-2.5px}.hero-art{height:390px}.service-card{min-height:270px}.reel-section{padding-left:6%;padding-right:6%}.statement-section p{font-size:clamp(32px,9vw,48px)}.about-visual{box-shadow:8px 8px 0 rgba(200,243,106,.16)}}
 @media(prefers-reduced-motion:reduce){.service-card,.nav-links a,.button{transition:none!important}}
+
+/* Light, premium studio palette: warm ivory, deep green and restrained lime */
+:root{--bg:#f5f3eb;--panel:#fffef9;--panel2:#e7eadc;--text:#1b2418;--muted:#626b5d;--line:rgba(29,42,24,.15);--gold:#4f702d;--gold-light:#d7f59a}
+body{background:#f5f3eb;color:#1b2418}
+.site-header{background:rgba(248,247,240,.94);border-bottom-color:rgba(29,42,24,.13);color:#1b2418}
+.nav-links{color:#3f4938}
+.nav-links .nav-cta{color:#1b2418;border-color:rgba(79,112,45,.55)}
+.nav-links .nav-cta:hover{background:#1b2418;color:#f5f3eb;border-color:#1b2418}
+.brand-name b,.nav-cta span,.text-link span,.gradient-text{color:#557a31}
+.hero{background:radial-gradient(ellipse at 76% 38%,rgba(175,207,119,.25),transparent 40%),#f5f3eb}
+.hero-copy,.section-intro,.about-copy>p:not(.eyebrow),.contact-copy>p{color:#626b5d}
+.eyebrow{color:#557a31}
+.status-dot{background:#6e963b;box-shadow:0 0 12px rgba(110,150,59,.25)}
+.button-primary{background:#1b2418;color:#fffef7}
+.button-primary:hover{background:#34482a}
+.button span{color:#d7f59a}
+.text-link{color:#34402e}
+.hero-footnote{color:#747d6d}
+.reel-topline,.reel-bottomline{color:#e7ecdf}
+.trust-strip{background:#d9edb5;color:#1b2418}
+.trust-strip p,.trust-strip div{color:#1b2418}
+.trust-strip div i{color:#557a31}
+.section,.services-section{background:#f5f3eb}
+.service-card{background:#fffef9;border-color:rgba(29,42,24,.13);box-shadow:0 10px 35px rgba(29,42,24,.045)}
+.service-card:hover{background:#fafff2;border-color:rgba(79,112,45,.38);box-shadow:0 18px 40px rgba(29,42,24,.08)}
+.service-card h3{color:#1b2418}
+.service-card p{color:#626b5d}
+.service-number,.service-tags span,.service-icon{color:#557a31}
+.service-tags span{border:1px solid rgba(79,112,45,.18);background:rgba(175,207,119,.12)}
+.service-card>a{color:#557a31;border-color:rgba(79,112,45,.35)}
+.service-card>a:hover{background:#1b2418;color:#d7f59a}
+.reel-section{background:#e9eddf;color:#1b2418}
+.studio-heading>p{color:#626b5d}
+.showreel-tile{background:#fffef9;border-color:rgba(29,42,24,.12)}
+.tile-copy h3{color:#1b2418}
+.tile-copy>span,.tile-chip,.design-index{color:#557a31}
+.reel-footer{border-color:rgba(29,42,24,.18);color:#557a31}
+.statement-section{background:#d9edb5;color:#1b2418}
+.statement-section p span{color:#557a31}
+.statement-bottom{color:rgba(27,36,24,.7);border-color:rgba(27,36,24,.2)}
+.about-section{background:#f5f3eb}
+.about-visual{background:#e1e8d5;box-shadow:14px 14px 0 rgba(79,112,45,.12)}
+.about-stamp{background:#d9edb5;color:#1b2418}
+.about-note{background:#fffef9;color:#1b2418;border-color:rgba(29,42,24,.14)}
+.about-copy .button-outline{border:1px solid rgba(79,112,45,.5);color:#1b2418}
+.about-copy .button-outline:hover{background:#1b2418;color:#f5f3eb}
+.contact-section{background:#e9eddf;color:#1b2418}
+.contact-orb{background:radial-gradient(circle,rgba(175,207,119,.3),transparent 70%)}
+.contact-form label{color:#34402e}
+.contact-form input,.contact-form select,.contact-form textarea{background:#fffef9;border:1px solid rgba(29,42,24,.2);color:#1b2418}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:#7d8677}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:#6e963b;box-shadow:0 0 0 3px rgba(110,150,59,.13);background:#fffef9}
+.form-note{color:#626b5d}
+.site-footer{background:#e0e5d6;color:#4f5949;border-top:1px solid rgba(29,42,24,.12)}
+.site-footer .brand-name{color:#1b2418}
+:where(a,button,input,select,textarea):focus-visible{outline:2px solid #557a31}
+@media(max-width:650px){.about-visual{box-shadow:8px 8px 0 rgba(79,112,45,.12)}}
