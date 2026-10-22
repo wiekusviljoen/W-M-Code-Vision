@@ -34,7 +34,7 @@
         const progress = $('.loader-progress span', loader);
         const drawLogo = () => {
           loader.classList.add('is-drawing');
-          window.setTimeout(hideLoader, 1450);
+          window.setTimeout(hideLoader, 1800);
         };
         if (progress) {
           progress.addEventListener('animationend', drawLogo, { once: true });
