@@ -1,29 +1,15 @@
-# W&M Code Vision — Website
+# W&M Code & Vision
 
-Responsive starter website for the W&M Code Vision digital studio.
+ASP.NET Core web app built with C# and .NET 10. Open `W-M-Code-Vision.sln` in Visual Studio and press **F5** to run it.
 
-## Services presented
-- Software development
-- Social media content
-- Google Ads
-- Drone footage
-- Multimedia production
+## Project
+- `WmCodeVision.Web` — ASP.NET Core app
+- `WmCodeVision.Web/wwwroot` — website HTML, CSS, JavaScript, and logo
+- `GET /health` — simple health check
 
-## Run locally
+## Run
+1. Open `W-M-Code-Vision.sln` in Visual Studio.
+2. Set `WmCodeVision.Web` as the startup project if prompted.
+3. Press **F5** (or **Ctrl+F5**).
 
-This is a static HTML, CSS and JavaScript website; no package installation is required.
-
-1. Open `index.html` in a browser, or open the repository folder in Visual Studio.
-2. For a local development server, use Visual Studio's built-in options if available, or run `npx serve .` from this folder (Node.js required).
-
-## Before publishing
-- Add the final company contact email and phone/WhatsApp details.
-- Connect the contact form to a secure backend or form service. It is currently a demo only and does not send or store enquiries.
-- Confirm the final company name, logo, social links, service area and any portfolio examples.
-- Add privacy/legal information appropriate to the business and the markets served.
-- Test mobile layout and keyboard accessibility on real devices.
-
-## Project files
-- `index.html` — page content and sections
-- `styles.css` — responsive dark-green visual system
-- `script.js` — mobile navigation and demo form behaviour
+The enquiry form sends submissions through FormSubmit to `info.wmcodevision@gmail.com`. The first submission may require the recipient to activate the email address through FormSubmit.
