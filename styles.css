@@ -25,3 +25,57 @@ body.is-loading{overflow:hidden}
 @keyframes loader-spin{to{transform:rotate(360deg)}}
 @keyframes loader-progress{from{transform:translateX(-110%)}to{transform:translateX(250%)}}
 @media(prefers-reduced-motion:reduce){.site-loader,.loader-orbit,.loader-progress span{transition:none!important;animation:none!important}.loader-progress span{width:100%}}
+
+/* Option 3: make the work the centrepiece, with clear problem/approach storytelling. */
+.portfolio-section{padding:100px 9%;background:#f5f0e8;color:#191713}
+.portfolio-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:42px}
+.portfolio-heading h2{font:400 clamp(42px,5vw,66px)/1.04 Georgia,serif;letter-spacing:-2px;margin:0}
+.portfolio-heading h2 span{color:#9c7334}
+.portfolio-heading>p{max-width:365px;margin:0 0 4px;color:#6d665c;font-size:13px;line-height:1.9}
+.portfolio-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.project-card{min-width:0;background:#fffdf8;border:1px solid rgba(42,33,22,.14);transition:transform .3s,border-color .3s,box-shadow .3s}
+.project-card:hover{transform:translateY(-4px);border-color:#b78a43;box-shadow:0 20px 50px #29211412}
+.project-card:last-child{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr}
+.project-visual{height:270px;position:relative;overflow:hidden;display:grid;place-items:center;padding:24px}
+.farm-visual{background:radial-gradient(ellipse at 50% 40%,#34452d,#111811 78%)}
+.project-index{position:absolute;left:18px;bottom:15px;color:#e7eddd;font-size:8px;letter-spacing:1.5px}
+.project-window{width:100%;max-width:440px;padding:14px;background:#f6f3e9;border:1px solid #75816b;box-shadow:0 20px 55px #0005}
+.project-window-top{display:flex;justify-content:space-between;gap:10px;padding-bottom:12px;border-bottom:1px solid #d8d9ca;font:8px ui-monospace,monospace;letter-spacing:1px;color:#273522}
+.project-window-top i{font-style:normal;color:#71855c}
+.farm-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:12px 0}
+.farm-stats>div{padding:10px 8px;background:#e8ebdf;display:flex;flex-direction:column}
+.farm-stats small{font-size:6px;letter-spacing:1px;color:#68755d}
+.farm-stats b{font:26px Georgia,serif;color:#253621;margin:5px 0}
+.farm-stats span{font-size:7px;color:#68755d}
+.farm-chart{height:55px;border-bottom:1px solid #c9d0be;display:flex;align-items:flex-end;gap:8px;padding:0 12px}
+.farm-chart span{flex:1;background:#8da477;height:35%}
+.farm-chart span:nth-child(2n){height:60%}.farm-chart span:nth-child(3n){height:85%}.farm-chart span:nth-child(5n){height:50%}
+.project-creator{background:#fffdf8}
+.creator-visual{background:radial-gradient(ellipse at 50% 40%,#263c31,#101511 80%)}
+.creator-screen{width:100%;height:100%;max-width:400px;padding:12px;border:1px solid #405343;background:#151c17;display:flex;flex-direction:column}
+.creator-top{display:flex;justify-content:space-between;color:#dbe5d5;font-size:8px;letter-spacing:1px}
+.creator-top span{color:#c8f36a;font-size:7px}
+.creator-preview{flex:1;display:grid;grid-template-columns:1fr 34px;gap:10px;align-items:center;padding:10px 0}
+.preview-frame{height:100%;min-height:120px;background:linear-gradient(145deg,#d8e4c8,#6f8c5c 60%,#243323);display:flex;flex-direction:column;justify-content:flex-end;padding:15px;color:#10170f}
+.preview-frame span{font-size:7px;letter-spacing:2px}.preview-frame b{font:800 clamp(22px,3vw,35px)/.9 Manrope,sans-serif;letter-spacing:-1px}
+.preview-controls{display:grid;gap:8px}.preview-controls i{display:block;width:22px;height:22px;border:1px solid #50634c;border-radius:50%}.preview-controls i:first-child{background:#c8f36a}
+.creator-timeline{display:flex;gap:5px;height:20px}.creator-timeline span{height:100%;flex:1;background:#344c39;border-top:3px solid #8eb77a}.creator-timeline span:nth-child(2){background:#66513b;border-color:#d8b178}.creator-timeline span:nth-child(3){background:#344c39;border-color:#c8f36a}
+.workwise-visual{background:#e2e9d8}
+.workwise-card{width:78%;max-width:330px;padding:18px;background:#fbfcf7;box-shadow:12px 12px 0 #c8f36a;border:1px solid #cad4c0;transform:rotate(-2deg)}
+.workwise-logo{font:italic 28px Georgia,serif;color:#20291d}.workwise-logo span{color:#819b67}
+.workwise-card>small{font-size:6px;letter-spacing:1.5px;color:#7b886f}
+.workwise-card h4{font:400 25px/1.05 Georgia,serif;margin:12px 0;color:#20291d}
+.task-row{display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid #e0e5da;font-size:8px;color:#4c5846}
+.task-row i{width:6px;height:6px;border-radius:50%;background:#82a16d}.task-row span{flex:1}.task-row b{font-size:6px;letter-spacing:1px;color:#6b8457}
+.project-copy{padding:25px 27px 28px}
+.project-kicker{font-size:8px;letter-spacing:1.6px;color:#9c7334;margin:0 0 10px}
+.project-copy h3{font:400 30px/1.1 Georgia,serif;letter-spacing:-.7px;margin:0 0 12px}
+.project-copy>p:not(.project-kicker){font-size:12px;line-height:1.85;color:#6d665c;margin:0}
+.project-outcome{display:grid;grid-template-columns:92px 1fr;gap:8px 10px;border-top:1px solid #e5ded1;margin-top:19px;padding-top:15px}
+.project-outcome b{font-size:7px;letter-spacing:1px;color:#9c7334;padding-top:2px}
+.project-outcome span{font-size:10px;line-height:1.6;color:#5c564c}
+.project-copy>a{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:14px;border-top:1px solid #e5ded1;font-size:10px;font-weight:700}
+.project-copy>a span{font-size:17px;color:#9c7334}
+.portfolio-note{margin:18px 0 0;color:#80776a;font-size:9px;line-height:1.7}
+@media(max-width:900px){.portfolio-section{padding:80px 6%}.portfolio-grid{gap:12px}.project-copy{padding:22px}.project-visual{padding:18px;height:250px}.project-outcome{grid-template-columns:78px 1fr}}
+@media(max-width:650px){.portfolio-section{padding:65px 6%}.portfolio-heading{display:block;margin-bottom:28px}.portfolio-heading>p{margin-top:18px}.portfolio-grid{grid-template-columns:1fr}.project-card:last-child{grid-column:auto;display:block}.project-visual{height:245px;padding:18px}.project-copy{padding:22px}.project-copy h3{font-size:28px}.project-outcome{grid-template-columns:82px 1fr}}
