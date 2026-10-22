@@ -21,8 +21,8 @@
       window.addEventListener('load', hideLoader, { once: true });
     } else {
       let loaderResolved = false;
-      const startIntro = async () => {
-        if (loaderResolved || loaderVideo.readyState < HTMLMediaElement.HAVE_FUTURE_DATA) return;
+      const startIntro = async (usePosterFallback = false) => {
+        if (loaderResolved || (!usePosterFallback && loaderVideo.readyState < HTMLMediaElement.HAVE_FUTURE_DATA)) return;
         loaderResolved = true;
         try {
           await loaderVideo.play();
@@ -53,6 +53,11 @@
       }, { once: true });
       loaderVideo.load();
       if (loaderVideo.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) startIntro();
+      // On slow mobile connections, keep the sketches moving and use the poster
+      // rather than trapping visitors indefinitely waiting for full video readiness.
+      window.setTimeout(() => {
+        if (!loaderResolved) startIntro(true);
+      }, 5500);
     }
   }
 

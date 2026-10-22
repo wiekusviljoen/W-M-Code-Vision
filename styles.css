@@ -124,3 +124,21 @@ body.is-loading{overflow:hidden}
 .site-loader.is-drawing .loader-shade{background:linear-gradient(180deg,rgba(8,12,8,.34),rgba(8,12,8,.56) 55%,rgba(8,12,8,.82));transition:background 1s ease}
 @keyframes loader-aerial-drift{0%{transform:scale(1.04) translate3d(-1.1%,.6%,0)}50%{transform:scale(1.1) translate3d(.7%,-.5%,0)}100%{transform:scale(1.16) translate3d(1.2%,.7%,0)}}
 @media(prefers-reduced-motion:reduce){.loader-video,.site-loader.is-drawing .loader-video{animation:none;transform:scale(1.06)}}
+
+
+/* Living service sketches: the lime beam traces drone, software and social icons while media loads. */
+.loader-service-sketch{display:block;width:min(300px,78vw);height:58px;margin:18px 0 10px;overflow:visible}
+.loader-service-sketch path,.loader-service-sketch rect,.loader-service-sketch ellipse{fill:none;stroke:#c8f36a;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
+.loader-service-sketch .sketch-connector{stroke:rgba(200,243,106,.28);stroke-dasharray:3 5;animation:sketch-track 1.8s linear infinite}
+.sketch-icon{opacity:.2;transform-origin:center;animation:sketch-icon-light 3.6s ease-in-out infinite}
+.sketch-icon path,.sketch-icon rect,.sketch-icon ellipse{stroke-dasharray:180;stroke-dashoffset:180;animation:sketch-icon-draw 3.6s ease-in-out infinite}
+.sketch-computer{animation-delay:1.2s}
+.sketch-computer path,.sketch-computer rect{animation-delay:1.2s}
+.sketch-social{animation-delay:2.4s}
+.sketch-social path{animation-delay:2.4s}
+.loader-progress{margin-top:0}
+@keyframes sketch-track{to{stroke-dashoffset:-32}}
+@keyframes sketch-icon-draw{0%,8%{stroke-dashoffset:180}28%,72%{stroke-dashoffset:0}92%,100%{stroke-dashoffset:-180}}
+@keyframes sketch-icon-light{0%,8%,92%,100%{opacity:.22;filter:none}28%,72%{opacity:1;filter:drop-shadow(0 0 5px rgba(200,243,106,.6))}}
+@media(max-width:600px){.loader-content{min-width:0;width:90vw}.loader-mark{width:min(280px,78vw)}.loader-service-sketch{width:min(280px,78vw);margin:12px 0 8px}.loader-content .loader-status{margin-top:18px}}
+@media(prefers-reduced-motion:reduce){.loader-service-sketch *{animation:none!important;stroke-dashoffset:0!important}.sketch-icon{opacity:1}}
