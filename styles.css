@@ -94,3 +94,11 @@ body.is-loading{overflow:hidden}
 @keyframes loader-mark-in{from{opacity:0;transform:translateY(14px) scale(.97);letter-spacing:-8px}to{opacity:1;transform:translateY(0) scale(1);letter-spacing:-5px}}
 .site-loader.is-done .loader-video{transform:scale(1.04);transition:transform .75s ease,opacity .65s ease}
 @media(prefers-reduced-motion:reduce){.loader-video{animation:none;opacity:1}.loader-content .loader-brand{animation:none}}
+
+/* Cinematic loader progress: a luminous horizon line with a moving pulse and fine ticks. */
+.loader-progress{position:relative;width:min(260px,66vw);height:12px;margin-top:8px;overflow:visible;background:transparent;border-top:1px solid rgba(200,243,106,.2);border-bottom:1px solid rgba(200,243,106,.12)}
+.loader-progress:before{content:"";position:absolute;left:0;right:0;top:5px;height:1px;background:repeating-linear-gradient(90deg,rgba(200,243,106,.4) 0 1px,transparent 1px 13px)}
+.loader-progress:after{content:"";position:absolute;left:50%;top:2px;width:4px;height:7px;background:#f4f4ec;box-shadow:0 0 8px #c8f36a,0 0 18px #c8f36a;transform:translateX(-50%);opacity:.8}
+.loader-progress span{position:absolute;left:0;top:4px;width:38%;height:3px;background:linear-gradient(90deg,transparent,#8eaf48 35%,#e5ff9a 85%,transparent);box-shadow:0 0 10px rgba(200,243,106,.85);animation:loader-horizon-sweep 2.1s cubic-bezier(.45,0,.55,1) infinite}
+@keyframes loader-horizon-sweep{0%{transform:translateX(-110%) scaleX(.7);opacity:.25}45%{opacity:1}100%{transform:translateX(370%) scaleX(1.1);opacity:.25}}
+@media(prefers-reduced-motion:reduce){.loader-progress span{width:100%;transform:none;animation:none;opacity:.8}.loader-progress:after{display:none}}
