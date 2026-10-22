@@ -25,3 +25,13 @@
 @media(prefers-reduced-motion:reduce){.reel-frame-image,.tile-drone-visual,.design-spark,.code-cursor span,.typing-cursor{animation:none!important}}
 
 .hero-art.reel-hero:before,.hero-art.reel-hero:after{content:none!important}
+
+/* Real aerial landscape footage: no people or drone close-ups. */
+.reel-landscape-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-1;transform:scale(1.02);animation:drone-drift 24s ease-in-out infinite alternate;background:#17251a}
+.reel-drone{isolation:isolate;background:#17251a}
+.reel-drone .reel-landscape-video{z-index:-1}
+.reel-drone .reel-frame-shade{z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(8,13,9,.08) 10%,rgba(8,13,9,.18) 42%,rgba(8,13,9,.88) 100%)}
+.reel-drone .frame-index,.reel-drone .frame-caption,.reel-drone .frame-play{z-index:1}
+@media(prefers-reduced-motion:reduce){.reel-landscape-video{animation:none!important}}
+
+.reel-drone .reel-landscape-video{z-index:0}.reel-drone .reel-frame-shade{z-index:1}.reel-drone .frame-index,.reel-drone .frame-caption,.reel-drone .frame-play{z-index:2}
