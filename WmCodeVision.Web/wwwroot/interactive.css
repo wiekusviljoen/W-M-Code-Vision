@@ -301,3 +301,12 @@
 .showreel-grid>.farm-app-tile .farm-app-copy h3{color:#171a16!important}
 .showreel-grid>.farm-app-tile .farm-app-copy p{color:#30352e!important}
 .showreel-grid>.farm-app-tile .farm-app-link-label{color:#171a16!important;border-color:#66745c!important}
+/* Improve contrast across the showcase: remove lime-green copy on light backgrounds. */
+.showreel-grid .tile-copy>span{color:#30352e!important}
+.showreel-grid .tile-copy h3{color:#171a16!important}
+.showreel-grid .tile-copy p{color:#30352e!important}
+.showreel-grid .farm-app-copy>span:first-child{color:#30352e!important}
+/* Make the Aerial tile's location gallery action obvious and readable. */
+.aerial-gallery-link{display:inline-flex;align-items:center;gap:12px;margin-top:18px;padding-bottom:6px;border-bottom:1px solid #30352e;color:#171a16!important;font-size:9px;font-weight:700;letter-spacing:1.1px;text-decoration:none}
+.aerial-gallery-link b{font-size:15px;font-weight:500}
+.aerial-gallery-link:hover{color:#4f6241!important;border-color:#4f6241}
