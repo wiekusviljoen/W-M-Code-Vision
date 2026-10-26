@@ -2,8 +2,15 @@
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
-  const loader = $('#site-loader');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const loader = $('#site-loader');
   const loaderVideo = $('.loader-video');
+  // Slow the aerial footage slightly for a calmer, more cinematic feel.
+  [loaderVideo, $('#homepage-drone-reel')].filter(Boolean).forEach(video => {
+    video.playbackRate = 0.8;
+    video.defaultPlaybackRate = 0.8;
+  });
   const hideLoader = () => {
     if (!loader || loader.classList.contains('is-done')) return;
     loader.classList.add('is-done');
@@ -61,6 +68,38 @@
     }
   }
 
+  // Homepage aerial showreel: play all three original drone films in sequence, then repeat.
+  const droneReel = $('#homepage-drone-reel');
+  if (droneReel) {
+    const droneFilms = [
+      { src: 'drone-film-01.mp4', poster: 'DJI_0211-poster.jpg' },
+      { src: 'drone-film-02.mp4', poster: 'DJI_0227-poster.jpg' },
+      { src: 'drone-film-03.mp4', poster: 'DJI_0478-poster.jpg' }
+    ];
+    let filmIndex = 0;
+    const playDroneFilm = (index) => {
+      filmIndex = (index + droneFilms.length) % droneFilms.length;
+      const film = droneFilms[filmIndex];
+      droneReel.poster = film.poster;
+      droneReel.src = film.src;
+      droneReel.load();
+      const attempt = droneReel.play();
+      if (attempt && typeof attempt.catch === 'function') attempt.catch(() => {});
+    };
+    droneReel.addEventListener('loadedmetadata', () => { droneReel.playbackRate = 0.8; }, { once: false });
+    droneReel.addEventListener('ended', () => playDroneFilm(filmIndex + 1));
+    droneReel.addEventListener('error', () => {
+      if (droneReel.dataset.skipping) return;
+      droneReel.dataset.skipping = 'true';
+      window.setTimeout(() => {
+        droneReel.dataset.skipping = '';
+        playDroneFilm(filmIndex + 1);
+      }, 250);
+    });
+    droneReel.addEventListener('playing', () => { droneReel.dataset.skipping = ''; });
+    if (!reduceMotion) playDroneFilm(0);
+  }
+
   const menuToggle = $('.menu-toggle');
   const navLinks = $('.nav-links');
   menuToggle?.addEventListener('click', () => {
@@ -75,7 +114,7 @@
   const year = $('#year');
   if (year) year.textContent = new Date().getFullYear();
 
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   if ('IntersectionObserver' in window && !reduceMotion) {
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {
       if (entry.isIntersecting) {
