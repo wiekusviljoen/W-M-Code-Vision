@@ -10,3 +10,6 @@
 .software-projects .farm-app-copy p{font-size:13px}
 
 .workwise-preview{display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:14px;height:280px;min-height:280px;flex:0 0 280px;padding:18px;background:#dce5e9;color:#21364b}.workwise-preview>span,.workwise-preview>small{font-size:9px;letter-spacing:1.5px}.workwise-preview img{display:block;width:100%;height:100%;min-height:0;object-fit:contain;object-position:center;border-radius:5px}.workwise-preview:focus-visible{outline:3px solid #7a9d46;outline-offset:-3px}
+
+.software-projects .farm-laptop-screen{aspect-ratio:1.44}
+.farm-homepage-preview{display:block;width:100%;height:100%;object-fit:contain;background:#f7f8f4}

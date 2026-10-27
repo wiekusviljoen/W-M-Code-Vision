@@ -331,3 +331,7 @@ body{background:#f5f3eb;color:#1b2418}
 /* Keep the loader logo centered within equal white padding on every screen. */
 .site-loader .loader-mark{display:flex;align-items:center;justify-content:center;height:clamp(190px,36vw,260px);aspect-ratio:auto;padding:clamp(12px,2.5vw,24px)}
 .site-loader .loader-company-logo{min-width:0;min-height:0;max-height:none;flex:1;object-fit:contain;object-position:center}
+
+/* Keep the expanded navigation readable on tablet-sized screens. */
+.nav-links a[aria-current="page"],.site-nav a[aria-current="page"]{font-weight:700;text-decoration:underline;text-underline-offset:6px}
+@media(min-width:651px) and (max-width:1100px){.site-header:has(.nav-links){flex-wrap:wrap;gap:12px}.site-header .nav-links{width:100%;justify-content:space-between;gap:12px;flex-wrap:wrap}}
