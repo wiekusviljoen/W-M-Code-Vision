@@ -4,6 +4,25 @@
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Warm only local HTML links the visitor is about to use, without loading media.
+  const prefetchedPages = new Set();
+  const prefetchPage = event => {
+    if (navigator.connection?.saveData) return;
+    const link = event.target.closest?.('a[href]');
+    if (!link || link.target === '_blank' || link.hasAttribute('download')) return;
+    const url = new URL(link.href, location.href);
+    if (url.origin !== location.origin || !url.pathname.endsWith('.html') || url.pathname === location.pathname) return;
+    url.hash = '';
+    if (prefetchedPages.has(url.href)) return;
+    prefetchedPages.add(url.href);
+    const hint = document.createElement('link');
+    hint.rel = 'prefetch';
+    hint.href = url.href;
+    document.head.appendChild(hint);
+  };
+  document.addEventListener('pointerover', prefetchPage, { passive: true });
+  document.addEventListener('focusin', prefetchPage);
+
     const loader = $('#site-loader');
   const loaderVideo = $('.loader-video');
   // Slow the aerial footage slightly for a calmer, more cinematic feel.
