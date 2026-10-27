@@ -86,7 +86,8 @@ body{margin:0;background:#f5f1e9;color:#171a16}
 <body>
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="W&M Code and Vision home"><img class="brand-emblem" src="logo-cropped.jpg" alt="W&M Code and Vision logo"><span class="brand-name">CODE <b>&amp; VISION</b></span></a>
-    <nav class="site-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="software.html">Software</a><a href="social-media.html">Social Media</a><a href="drone-footage.html" aria-current="page">Drone Footage</a><a href="index.html#services">Services</a><a href="index.html#playground">Showreel</a><a href="index.html#about">About</a><a class="button button-primary" href="index.html#contact">Let's talk <span aria-hidden="true">&#8599;</span></a></nav>
+    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false"><span></span><span></span></button>
+    <nav class="site-nav nav-links" id="primary-navigation" aria-label="Main navigation"><a href="index.html">Home</a><a href="software.html">Software</a><a href="social-media.html">Social Media</a><a href="drone-footage.html" aria-current="page">Drone Footage</a><a href="index.html#services">Services</a><a href="index.html#playground">Showreel</a><a href="index.html#about">About</a><a class="button button-primary" href="contact.html">Let's talk <span aria-hidden="true">&#8599;</span></a></nav>
   </header>
   <main>
     <section class="gallery-hero"><span class="gallery-kicker">W&amp;M CODE &amp; VISION / AERIAL LIBRARY</span><h1>Explore the view.<br>Choose a location.</h1><p>Browse aerial footage by place. Pick a location to narrow the gallery, then play the footage right here.</p></section>
@@ -123,7 +124,7 @@ body{margin:0;background:#f5f1e9;color:#171a16}
           </article>
         </div>
       </section>
-      <div class="gallery-note"><strong>Adding more media:</strong> keep video files in the Videos section and image files in Photos. Each card shows its file type so visitors can tell them apart.</div>      <a class="gallery-back" href="index.html#playground">&#8592; Back to the showreel</a>
+      <a class="gallery-back" href="index.html#playground">&#8592; Back to the showreel</a>
     </section>
   </main>
   <script>
@@ -144,7 +145,8 @@ body{margin:0;background:#f5f1e9;color:#171a16}
       kindButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
       updateGallery();
     }));
-  </script></body>
+  </script><script src="script.js" defer></script>
+</body>
 </html>
 
 

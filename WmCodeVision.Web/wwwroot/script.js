@@ -85,3 +85,15 @@
     });
   }
 })();
+
+
+// Close dropdown when clicking outside, pressing Escape, or resizing.
+document.addEventListener('DOMContentLoaded', () => {
+ const toggle=document.querySelector('.menu-toggle');
+ const nav=document.querySelector('.nav-links');
+ if(!toggle||!nav)return;
+ const close=()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation menu');};
+ toggle.addEventListener('click',()=>toggle.setAttribute('aria-label',nav.classList.contains('open')?'Close navigation menu':'Open navigation menu'));
+ document.addEventListener('click',e=>{if(!toggle.contains(e.target)&&!nav.contains(e.target))close();});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open')){close();toggle.focus();}});
+});
