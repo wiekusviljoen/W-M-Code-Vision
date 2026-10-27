@@ -17,3 +17,6 @@
  .app-preview:hover .app-preview-arrow{transform:translate(3px,-3px);background:#fff}
 }
 @media(prefers-reduced-motion:reduce){.app-project-card,.app-preview-screen,.app-preview-arrow{transition:none!important;transform:none!important}}
+
+.website-preview{background:#e9dfcf;color:#29251e}
+.website-preview .app-preview-arrow{background:#f8f3e9;border-color:#f8f3e9;color:#29251e}
