@@ -1,28 +1,19 @@
 .software-hero{padding:65px 9% 70px;background:#111511;color:#f4f4ec}.software-back{display:inline-block;font-size:12px;color:#c8f36a;margin-bottom:40px}.software-hero .eyebrow{color:#c8f36a}.software-hero h1{font:400 clamp(42px,6vw,80px)/1.04 Georgia,serif;letter-spacing:-2px;margin:0 0 25px}.software-hero h1 span{color:#c8f36a}.software-hero>p:last-child{max-width:550px;color:#c1c7b9;font-size:15px}.software-projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;padding:65px 9%}.software-card{border:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column;min-width:0}.software-art{min-height:230px;background:#263a2e;color:#edf2df;padding:25px;display:flex;flex-direction:column;justify-content:space-between}.software-art>span,.software-art small{font-size:10px;letter-spacing:1.5px}.software-art strong{font:400 clamp(28px,3.5vw,48px) Georgia,serif;overflow-wrap:anywhere}.art-1{background:#dde6ce;color:#263a2e}.art-2{background:#20251e;color:#c8f36a}.art-3{background:#e9dfcf;color:#29251e}.software-copy{padding:28px;display:flex;flex-direction:column;align-items:flex-start;flex:1}.software-copy h2{font:400 32px Georgia,serif;margin:0 0 14px}.software-copy p{font-size:13px;color:#596052;margin:0 0 20px}.software-copy .software-tags{font-size:11px;border-top:1px solid var(--line);padding-top:16px;width:100%}.software-copy a{margin-top:auto;border-bottom:1px solid #66745c;padding-bottom:5px}.software-contact{margin:0 9% 65px;padding-top:30px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:25px}.software-contact h2{font:400 30px Georgia,serif;margin:0}a:focus-visible{outline:3px solid #7a9d46;outline-offset:5px}@media(max-width:650px){.software-hero{padding:40px 6% 45px}.software-projects{grid-template-columns:1fr;padding:35px 6%;gap:22px}.software-art{min-height:190px}.software-contact{margin:0 6% 45px;align-items:flex-start;flex-direction:column}}
-/* Reuse the original live Farm app showcase on the software portfolio. */
-.software-projects>.farm-app-tile{display:flex;flex-direction:column;min-width:0;height:100%;border:1px solid var(--line)}
-.software-projects .farm-app-showcase{display:flex;flex-direction:column;height:100%}
-.software-projects .farm-app-visual{height:280px;min-height:280px;flex:0 0 280px}
-.software-projects .farm-laptop{max-width:310px}
-.software-projects .farm-laptop-base{max-width:340px}
-.software-projects .farm-app-copy{flex:1;padding:28px;background:var(--panel)}
-.software-projects .farm-app-copy h3{font:400 32px/1.15 Georgia,serif}
-.software-projects .farm-app-copy p{font-size:13px}
 
-.workwise-preview{display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:14px;height:280px;min-height:280px;flex:0 0 280px;padding:18px;background:#dce5e9;color:#21364b}.workwise-preview>span,.workwise-preview>small{font-size:9px;letter-spacing:1.5px}.workwise-preview img{display:block;width:100%;height:100%;min-height:0;object-fit:contain;object-position:center;border-radius:5px}.workwise-preview:focus-visible{outline:3px solid #7a9d46;outline-offset:-3px}
-
-.software-projects .farm-laptop-screen{aspect-ratio:1.44}
-.farm-homepage-preview{display:block;width:100%;height:100%;object-fit:contain;background:#f7f8f4}
-
-/* Match the Farm card's lift and preview shadow. */
-.software-card:has(.workwise-preview){transition:border-color .3s,transform .3s}
-.workwise-preview img{transition:transform .25s ease,box-shadow .25s ease}
-@media (hover:hover) and (pointer:fine){
-  .software-card:has(.workwise-preview):hover{border-color:#c8f36a;transform:translateY(-4px)}
-  .workwise-preview:hover img{transform:translateY(-3px);box-shadow:0 25px 45px rgba(0,0,0,.32)}
+/* Both app previews share dimensions, framing, controls and motion. */
+.app-project-card{transition:border-color .3s,transform .3s}
+.app-preview{position:relative;display:flex;flex-direction:column;align-items:center;gap:18px;height:300px;min-height:300px;flex:0 0 300px;padding:20px 18px;color:#dce7c9;background:#263a2e}
+.workwise-preview{background:#dce5e9;color:#21364b}
+.app-preview-label{align-self:flex-start;font-size:9px;font-weight:700;letter-spacing:1.5px}
+.app-preview-screen{display:block;width:100%;max-width:260px;aspect-ratio:1.44;min-height:0;border:6px solid #1c2821;border-radius:9px;overflow:hidden;background:#f7f8f4;box-shadow:0 20px 40px rgba(0,0,0,.25);transition:transform .25s ease,box-shadow .25s ease}
+.app-preview-screen img{display:block;width:100%;height:100%;object-fit:contain}
+.app-preview-arrow{display:grid;place-items:center;align-self:flex-end;margin-top:auto;flex:0 0 36px;width:36px;height:36px;border:1px solid #dce7c9;border-radius:50%;background:#dce7c9;color:#263a2e;font-size:20px;line-height:1;transition:transform .25s ease,background .25s ease}
+.workwise-preview .app-preview-arrow{background:#edf4f8;border-color:#edf4f8;color:#21364b}
+.app-preview:focus-visible{outline:3px solid #7a9d46;outline-offset:-3px}
+.app-project-card:focus-within{border-color:#7a9d46}
+@media(hover:hover) and (pointer:fine){
+ .app-project-card:hover{border-color:#c8f36a;transform:translateY(-4px)}
+ .app-preview:hover .app-preview-screen{transform:translateY(-3px);box-shadow:0 25px 45px rgba(0,0,0,.32)}
+ .app-preview:hover .app-preview-arrow{transform:translate(3px,-3px);background:#fff}
 }
-.software-card:has(.workwise-preview:focus-visible){border-color:#c8f36a}
-.workwise-preview:focus-visible img{box-shadow:0 25px 45px rgba(0,0,0,.32)}
-@media (prefers-reduced-motion:reduce){
-  .software-card:has(.workwise-preview),.workwise-preview img{transition:none!important;transform:none!important}
-}
+@media(prefers-reduced-motion:reduce){.app-project-card,.app-preview-screen,.app-preview-arrow{transition:none!important;transform:none!important}}
