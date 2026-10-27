@@ -97,3 +97,69 @@ document.addEventListener('DOMContentLoaded', () => {
  document.addEventListener('click',e=>{if(!toggle.contains(e.target)&&!nav.contains(e.target))close();});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open')){close();toggle.focus();}});
 });
+
+// Discreet page progress and feedback only where media is actively loading.
+(() => {
+  const track = document.createElement('div');
+  track.className = 'page-load-track';
+  track.setAttribute('aria-hidden', 'true');
+  track.hidden = true;
+  document.body.append(track);
+  let trackTimer;
+  const stop = () => { clearTimeout(trackTimer); track.hidden = true; };
+  const start = () => { stop(); trackTimer = setTimeout(() => { track.hidden = false; trackTimer = setTimeout(stop, 10000); }, 200); };
+  if (document.readyState !== 'complete') start();
+  window.addEventListener('load', stop);
+  window.addEventListener('pageshow', stop);
+  document.addEventListener('click', event => {
+    const link = event.target.closest?.('a[href]');
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || !link || link.hasAttribute('download') || (link.target && link.target !== '_self')) return;
+    const url = new URL(link.href);
+    if (url.origin === location.origin && url.pathname !== location.pathname && /\.html$/.test(url.pathname)) start();
+  });
+  const selectors = '.media-frame video, .reel-frame video, .showreel-tile video, .footage-photo-link img, .content-artwork img, .design-art img, .app-preview-screen img';
+  document.querySelectorAll(selectors).forEach(media => {
+    const video = media.tagName === 'VIDEO';
+    const host = media.parentElement;
+    host.classList.add('media-loading-host');
+    const badge = document.createElement('span');
+    badge.className = 'media-loading-badge';
+    badge.setAttribute('role', 'status');
+    badge.hidden = true;
+    host.append(badge);
+    let delay, deadline;
+    const clear = () => { clearTimeout(delay); clearTimeout(deadline); };
+    const done = () => { clear(); badge.hidden = true; };
+    const unavailable = () => {
+      clear(); badge.classList.add('is-unavailable');
+      badge.textContent = navigator.onLine ? (video ? 'Video unavailable. Try again.' : 'Image unavailable.') : 'Reconnect to load this ' + (video ? 'video.' : 'image.');
+      badge.hidden = false;
+    };
+    const loading = () => {
+      clear();
+      delay = setTimeout(() => {
+        badge.classList.remove('is-unavailable');
+        badge.textContent = video ? 'Loading video' : 'Loading image';
+        badge.hidden = false;
+        deadline = setTimeout(() => { badge.classList.add('is-unavailable'); badge.textContent = 'Taking longer than usual. Check your connection.'; }, 20000);
+      }, 300);
+    };
+    media.addEventListener('error', unavailable);
+    if (video) {
+      ['waiting', 'play'].forEach(name => media.addEventListener(name, () => { if (media.readyState < 3) loading(); }));
+      ['playing', 'canplay', 'pause', 'ended', 'emptied'].forEach(name => media.addEventListener(name, done));
+      // Do not show an indefinite spinner on videos waiting for the visitor to press Play.
+      if (media.autoplay && media.readyState < 3 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) loading();
+    } else {
+      media.addEventListener('load', done);
+      if (media.complete) { if (!media.naturalWidth) unavailable(); }
+      else if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => {
+          if (entries.some(entry => entry.isIntersecting)) { if (!media.complete) loading(); observer.disconnect(); }
+        });
+        observer.observe(media);
+      } else loading();
+    }
+    window.addEventListener('pageshow', () => { if (video ? media.readyState >= 3 : media.complete && media.naturalWidth) done(); });
+  });
+})();

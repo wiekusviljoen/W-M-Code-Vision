@@ -350,3 +350,15 @@ body{background:#f5f3eb;color:#1b2418}
 .site-header .nav-links>a[aria-current="page"]{background:#e7eadc;font-weight:700}
 .site-header .nav-links .nav-cta,.site-header .site-nav.nav-links .button{margin-top:6px;align-self:stretch!important;text-align:center!important;background:#1b2418!important;color:#fff!important;border-radius:7px}
 @media(max-width:520px){.site-header{flex-direction:row!important;align-items:center!important;padding:10px 5%!important}.site-header .nav-links,.site-header .site-nav.nav-links{right:12px!important}}
+
+/* Lightweight loading feedback: never covers the page or captures clicks. */
+.page-load-track{position:fixed;inset:0 0 auto;height:3px;z-index:1000;pointer-events:none;overflow:hidden;background:transparent}
+.page-load-track::after{content:'';display:block;width:38%;height:100%;background:linear-gradient(90deg,transparent,#b78a43,#d7f59a);box-shadow:0 0 12px #b78a4380;animation:wm-loading-sweep 1.4s ease-in-out infinite}
+.media-loading-host{position:relative}
+.media-loading-badge{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:4;display:flex;align-items:center;gap:10px;max-width:90%;padding:10px 16px;border:1px solid #e2c58a55;border-radius:30px;background:#182016e8;box-shadow:0 5px 22px #0003;color:#fffdf8;font:500 11px/1.4 var(--font,sans-serif);letter-spacing:.04em;pointer-events:none}
+.media-loading-badge::before{content:'';width:16px;height:16px;flex-shrink:0;border:2px solid #e2c58a40;border-top-color:#e2c58a;border-radius:50%;animation:wm-loading-spin .85s linear infinite}
+.media-loading-badge.is-unavailable::before{display:none}
+.media-loading-badge[hidden],.page-load-track[hidden]{display:none}
+@keyframes wm-loading-sweep{from{transform:translateX(-110%)}to{transform:translateX(370%)}}
+@keyframes wm-loading-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.page-load-track::after{animation:none;width:100%;transform:none}.media-loading-badge::before{animation:none;border-top-color:#e2c58a;border-bottom-color:#e2c58a}}
