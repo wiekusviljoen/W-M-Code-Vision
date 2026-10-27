@@ -362,3 +362,11 @@ body{background:#f5f3eb;color:#1b2418}
 @keyframes wm-loading-sweep{from{transform:translateX(-110%)}to{transform:translateX(370%)}}
 @keyframes wm-loading-spin{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.page-load-track::after{animation:none;width:100%;transform:none}.media-loading-badge::before{animation:none;border-top-color:#e2c58a;border-bottom-color:#e2c58a}}
+
+/* Readable actions on the site's cream panels; arrows follow their label. */
+:root .button-outline{color:#263a2e;border-color:#66745c;background:transparent}
+:root .button-outline:hover,:root .button-outline:focus-visible{background:#263a2e;color:#fffef9;border-color:#263a2e}
+:root .button-outline span,:root .nav-cta span,:root .text-link span{color:inherit}
+:root .text-link{color:#34482a}
+:root .text-link:hover{color:#263a2e}
+:root .button-outline:focus-visible,:root .text-link:focus-visible{outline:2px solid #4f702d;outline-offset:4px}

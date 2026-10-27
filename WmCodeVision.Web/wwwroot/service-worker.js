@@ -1,6 +1,6 @@
 // Bump this version whenever the offline shell changes. Updates activate after old tabs close.
 const PREFIX = 'wm-code-vision-' + self.registration.scope + '-';
-const CACHE = PREFIX + 'v2';
+const CACHE = PREFIX + 'v3';
 const ASSETS = [
   "contact.html",
   "content-showcase.css",
